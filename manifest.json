@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "Idle Countdown",
+  "version": "1.0.0",
+  "description": "Counts down 90 seconds from the last time the window was interacted with (focus, mouse, keyboard, scroll, touch).",
+  "permissions": ["notifications", "tabs"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_title": "Idle Countdown",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "idle-countdown@example.com",
+      "strict_min_version": "57.0"
+    }
+  }
+}
