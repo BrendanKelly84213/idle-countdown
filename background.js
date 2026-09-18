@@ -87,12 +87,12 @@ function tick() {
       });
 
       const s = tabStates.get(tab.id);
-      if (remaining === 0 && s && !s.notifiedZero) {
+      if (remaining === 10 && s && !s.notifiedZero) {
         s.notifiedZero = true;
         browser.notifications.create({
           type: 'basic',
           title: 'Idle Countdown',
-          message: `Tab idle for ${COUNTDOWN_SECONDS}s: ${tab.title || tab.url}`
+          message: `Tab idle for ${COUNTDOWN_SECONDS - 10}s: ${tab.title || tab.url}`
         });
       }
     }
